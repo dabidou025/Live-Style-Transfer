@@ -9,8 +9,20 @@ from models.stmodel import STModel
 from models.vgg16 import VGG16
 from trainer import Trainer
 
+import argparse
 
-def main():
+def train(args):
+
+    dataset_path = args.dataset_path
+    styles_path = args.styles_path
+    save_model_path = args.save_model_path
+    n_epochs = args.n_epochs
+
+    batch_size = args.batch_size
+    lr = args.lr
+
+    content_factor = args.content_factor
+    style_factor = args.style_factor
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -29,7 +41,7 @@ def main():
         transforms.Normalize(mean=mean, std=std)
     ])
 
-    style_dataset = PictureDataset('style_pictures', transform=data_transform)
+    style_dataset = PictureDataset(styles_path, transform=data_transform)
     n_styles = len(style_dataset)
     st_model = STModel(n_styles)
     if False:
@@ -44,23 +56,46 @@ def main():
         style_img = style_dataset[s].unsqueeze(0).to(device)
         style_features = features_model.get_features(style_img)
         for i in style_layers:
-            style_matrices[i] = features_model.gram_batch_matrix(style_features[i])
+            style_matrices[i] = features_model.gram_batch_matrix(style_features[i]).to(device)
         style_gram_matrices.append(style_matrices)
     
     trainer = Trainer(st_model, features_model, layers, content_layers, style_layers, style_gram_matrices, device)
     
-    dataset = PictureDataset('pictures', size=35, transform=data_transform)
-    dataloader = DataLoader(dataset, batch_size=1, shuffle=True)
+    dataset = PictureDataset(dataset_path, size=35, transform=data_transform)
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
-    optimizer = torch.optim.Adam(st_model.parameters(), lr=1e-3, betas=(0.9, 0.999))
+    optimizer = torch.optim.Adam(st_model.parameters(), lr=lr, betas=(0.9, 0.999))
     
-    content_losses, style_losses = trainer.train(dataloader, optimizer, n_epochs=20, content_factor=1, style_factor=1e6, save_dir='models')
+    content_losses, style_losses = trainer.train(dataloader, optimizer, n_epochs=n_epochs, content_factor=content_factor, style_factor=style_factor, save_dir=save_model_path)
 
     plt.subplot(1, 2, 1)
     plt.plot(content_losses)
     plt.subplot(1, 2, 2)
     plt.plot(style_losses)
     plt.show()
+
+def main():
+    parser = argparse.ArgumentParser(description="parser for training mutli-style-transfer")
+    
+    parser.add_argument("--n-epochs", type=int, default=2)
+
+    parser.add_argument("--batch-size", type=int, default=1)
+    
+    parser.add_argument("--dataset-path", type=str, required=True)
+
+    parser.add_argument("--styles-path", type=str, required=True)
+
+    parser.add_argument("--lr", type=float, default=1e-3)
+    
+    parser.add_argument("--content-factor", type=int, default=1)
+
+    parser.add_argument("--style-factor", type=int, default=1e6)
+
+    parser.add_argument("--save-model-path", type=str, default=None)
+    
+    args = parser.parse_args()
+
+    train(args)
 
 if __name__ == '__main__':
     main()

@@ -16,8 +16,8 @@ class Trainer:
         self.n_styles = len(style_gram_matrices)
 
         # for batch normalization
-        self.batch_mean = torch.tensor([0.485, 0.456, 0.406]).view(-1,1,1)
-        self.batch_std = torch.tensor([0.229, 0.224, 0.225]).view(-1,1,1)
+        self.batch_mean = torch.tensor([0.485, 0.456, 0.406]).view(-1,1,1).to(device)
+        self.batch_std = torch.tensor([0.229, 0.224, 0.225]).view(-1,1,1).to(device)
 
     def normalize_batch(self, batch):
         return (batch - self.batch_mean) / self.batch_std
@@ -31,13 +31,13 @@ class Trainer:
         content_losses = []
         style_losses = []
 
-        for epoch in range(n_epochs):
-            pbar = tqdm(dataloader)
+        pbar = tqdm(range(n_epochs))
+        for epoch in pbar:
 
             content_loss_epoch = 0
             style_loss_epoch = 0
-            for img in pbar:
-                img.to(self.device)
+            for i_batch, img in enumerate(dataloader):
+                img = img.to(self.device)
                 optimizer.zero_grad()
     
                 img_features = self.features_model.get_features(img)
@@ -62,7 +62,7 @@ class Trainer:
 
                 total_loss = content_factor*content_loss + style_factor*style_loss
 
-                pbar.set_description('{:.5e}'.format(content_loss.item()) + ", " + '{:.5e}'.format(style_loss.item()))
+                pbar.set_postfix({'progress': '{0:.2f}'.format(100*i_batch/len(dataloader)) + '%'})
 
                 total_loss.backward()
                 optimizer.step()
@@ -70,6 +70,8 @@ class Trainer:
                 content_loss_epoch += content_loss.item()
                 style_loss_epoch += style_loss.item()
             
+            pbar.set_description('{:.5e}'.format(content_loss_epoch) + ", " + '{:.5e}'.format(style_loss_epoch))
+
             content_losses.append(content_loss_epoch)
             style_losses.append(style_loss_epoch)
 
