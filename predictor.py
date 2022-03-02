@@ -7,7 +7,7 @@ class Predictor():
         self.device = device
 
         self.st_model = st_model.to(device)
-        st_model.eval()
+        self.st_model.eval()
         
         self.mean = [0.485, 0.456, 0.406]
         self.std = [0.229, 0.224, 0.225]   
