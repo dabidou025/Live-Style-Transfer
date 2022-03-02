@@ -18,6 +18,8 @@ def train(args):
     save_model_path = args.save_model_path
     n_epochs = args.n_epochs
 
+    dataset_size = args.dataset_size
+
     batch_size = args.batch_size
     lr = args.lr
 
@@ -84,6 +86,8 @@ def main():
     parser.add_argument("--dataset-path", type=str, required=True)
 
     parser.add_argument("--styles-path", type=str, required=True)
+
+    parser.add_argument("--dataset-size", type=int, required=True)
 
     parser.add_argument("--lr", type=float, default=1e-3)
     
