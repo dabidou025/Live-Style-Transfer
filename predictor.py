@@ -14,6 +14,7 @@ class Predictor():
         
         self.transformer = transforms.Compose([
             transforms.Resize(img_size),
+            transforms.CenterCrop(img_size),
             transforms.ToTensor(),
             transforms.Normalize(mean=self.mean, std=self.std)
         ])

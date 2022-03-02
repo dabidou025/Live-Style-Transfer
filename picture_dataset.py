@@ -5,10 +5,10 @@ from glob import glob
 import os
 
 class PictureDataset(Dataset):
-    def __init__(self, root_dir, size, transform=None):
+    def __init__(self, root_dir, size=None, transform=None):
         self.root_dir = root_dir
         self.transform = transform
-        self.list_images = glob(os.path.join(self.root_dir, '*.jpg'))[:size]
+        self.list_images = glob(os.path.join(self.root_dir, '*.jpg'))[:size] if size != None else glob(os.path.join(self.root_dir, '*.jpg'))
                                 
     def __len__(self):
         return len(self.list_images)
@@ -17,7 +17,7 @@ class PictureDataset(Dataset):
         image_loc = self.list_images[idx]
         image = Image.open(image_loc).convert('RGB')
         
-        if self.transform:
+        if self.transform != None:
             image = self.transform(image)
         
         return image
