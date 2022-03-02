@@ -42,7 +42,7 @@ class Trainer:
     
                 img_features = self.features_model.get_features(img)
 
-                s = random.randint(0, self.n_styles-1)
+                s = 0 #random.randint(0, self.n_styles-1)
 
                 gen_img = self.st_model(img, s)
                 gen_img = self.normalize_batch(gen_img)
@@ -58,7 +58,6 @@ class Trainer:
                     style_gram_matrix = self.style_gram_matrices[s][i]
 
                     style_loss += (1/len(self.style_layers)) * MSE(gen_gram_matrix, torch.cat(img.shape[0]*[style_gram_matrix]))
-                style_loss *= 1 / self.n_styles
 
                 total_loss = content_factor*content_loss + style_factor*style_loss
 

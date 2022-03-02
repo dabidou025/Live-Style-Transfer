@@ -18,11 +18,12 @@ class ConvCIN(nn.Module):
         #nn.init.constant_(self.instnorm.weight, 1)
         #nn.init.constant_(self.instnorm.bias, 0)
 
+        
         self.gamma = torch.nn.Parameter(data=torch.randn(n_styles, C_out), requires_grad=True)
-        self.gamma.data.uniform_(1.0, 1.0)
+        #self.gamma.data.uniform_(1.0, 1.0)
 
         self.beta = torch.nn.Parameter(data=torch.randn(n_styles, C_out), requires_grad=True)
-        self.beta.data.uniform_(0, 0)
+        #self.beta.data.uniform_(0, 0)
 
         self.activation = activation
 
@@ -33,12 +34,14 @@ class ConvCIN(nn.Module):
 
         x = self.instnorm(x)
 
+        
         if style_2 != None:
             gamma = alpha*self.gamma[style_1] + (1-alpha)*self.gamma[style_2]
             beta = alpha*self.beta[style_1] + (1-alpha)*self.beta[style_2]
         else:
             gamma = self.gamma[style_1]
             beta = self.beta[style_1]
+        
 
         b,d,w,h = x.size()
         x = x.view(b,d,w*h)
