@@ -63,7 +63,7 @@ def train(args):
     
     trainer = Trainer(st_model, features_model, layers, content_layers, style_layers, style_gram_matrices, device)
     
-    dataset = PictureDataset(dataset_path, size=35, transform=data_transform)
+    dataset = PictureDataset(dataset_path, size=dataset_size, transform=data_transform)
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
     optimizer = torch.optim.Adam(st_model.parameters(), lr=lr, betas=(0.9, 0.999))
