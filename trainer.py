@@ -42,7 +42,7 @@ class Trainer:
     
                 img_features = self.features_model.get_features(img)
 
-                s = 0 #random.randint(0, self.n_styles-1)
+                s = random.randint(0, self.n_styles-1)
 
                 gen_img = self.st_model(img, s)
                 gen_img = self.normalize_batch(gen_img)

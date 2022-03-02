@@ -15,6 +15,7 @@ def train(args):
 
     dataset_path = args.dataset_path
     styles_path = args.styles_path
+    load_model_path = args.load_model_path
     save_model_path = args.save_model_path
     n_epochs = args.n_epochs
 
@@ -45,8 +46,8 @@ def train(args):
     style_dataset = PictureDataset(styles_path, transform=data_transform)
     n_styles = len(style_dataset)
     st_model = STModel(n_styles)
-    if False:
-        st_model.load_state_dict(torch.load('D:/code/models/st_model_FINAL.pth'))
+    if True:
+        st_model.load_state_dict(torch.load(load_model_path))
     st_model = st_model.to(device)
 
     features_model = VGG16(layers, device)
@@ -95,6 +96,8 @@ def main():
     parser.add_argument("--content-factor", type=int, default=1)
 
     parser.add_argument("--style-factor", type=int, default=1e6)
+
+    parser.add_argument("--load-model-path", type=str, default=None)
 
     parser.add_argument("--save-model-path", type=str, default=None)
     
