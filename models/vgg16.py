@@ -30,7 +30,7 @@ class VGG16():
 
     def gram_batch_matrix(self, x):
         batch_size, n_feature_maps, height, width = x.size()
-        x = x.view(n_feature_maps, height*width)
+        x = x.view(batch_size, n_feature_maps, height*width)
         gram = torch.bmm(x, x.transpose(1,2)) / (n_feature_maps * height * width) 
 
         return gram
