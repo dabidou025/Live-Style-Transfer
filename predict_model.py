@@ -6,17 +6,19 @@ from models.stmodel import STModel
 from predictor import Predictor
 
 import argparse
+import os
 
 def predict(args):
 
     img_size = args.img_size
     load_model_path = args.load_model_path
     input_path = args.input_path
+    styles_path = args.styles_path
     save_generated_path = args.save_generated_path
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    n_styles = 16
+    n_styles = len(os.listdir(styles_path))
     st_model = STModel(n_styles)
     if True:
         st_model.load_state_dict(torch.load(load_model_path, map_location=device))
@@ -41,6 +43,8 @@ def main():
     parser.add_argument("--load-model-path", type=str, required=True)
 
     parser.add_argument("--input-path", type=str, required=True)
+
+    parser.add_argument("--styles-path", type=str, required=True)
 
     parser.add_argument("--save-generated-path", type=str, required=True)
     

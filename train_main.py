@@ -59,7 +59,7 @@ def train(args):
         for i in style_layers:
             style_matrices[i] = features_model.gram_batch_matrix(style_features[i]).to(device)
         style_gram_matrices.append(style_matrices)
-    
+
     trainer = Trainer(st_model, features_model, layers, content_layers, style_layers, style_gram_matrices, device)
     
     dataset = PictureDataset(dataset_path, size=dataset_size, transform=data_transform)
