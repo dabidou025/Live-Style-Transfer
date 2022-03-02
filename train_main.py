@@ -19,7 +19,7 @@ def train(args):
     n_epochs = args.n_epochs
 
     dataset_size = args.dataset_size
-
+    img_size = args.img_size
     batch_size = args.batch_size
     lr = args.lr
 
@@ -35,7 +35,6 @@ def train(args):
     mean = [0.485, 0.456, 0.406]
     std = [0.229, 0.224, 0.225]
 
-    img_size = 64
     data_transform = transforms.Compose([
         transforms.Resize(img_size),
         transforms.CenterCrop(img_size),
@@ -77,7 +76,7 @@ def train(args):
     plt.show()
 
 def main():
-    parser = argparse.ArgumentParser(description="parser for training mutli-style-transfer")
+    parser = argparse.ArgumentParser(description="Training parser")
     
     parser.add_argument("--n-epochs", type=int, default=2)
 
@@ -88,6 +87,8 @@ def main():
     parser.add_argument("--styles-path", type=str, required=True)
 
     parser.add_argument("--dataset-size", type=int, required=True)
+
+    parser.add_argument("--img-size", type=int, required=True)
 
     parser.add_argument("--lr", type=float, default=1e-3)
     
