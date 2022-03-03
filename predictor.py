@@ -20,7 +20,7 @@ class Predictor():
         ])
         
     def eval_image(self, img, style_1, style_2=None, alpha=0.5):
-        img = self.transformer(img)
-        gen = self.st_model(img.unsqueeze(0).to(self.device), style_1, style_2, alpha)
+        img = self.transformer(img).to(self.device)
+        gen = self.st_model(img.unsqueeze(0), style_1, style_2, alpha)
         
         return Image.fromarray(np.uint8(np.moveaxis(gen[0].cpu().detach().numpy()*255.0, 0, 2)))

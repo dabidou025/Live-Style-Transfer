@@ -31,7 +31,7 @@ def predict(args):
     for s in range(n_styles):
         t = time.time()
         gen = predictor.eval_image(img, s)
-        print('Style', s, 'took',time.time() - t)
+        print('Style', s, 'took', time.time() - t)
         gen.save(save_generated_path + '/gen_' + str(s+1) + '.jpg')
 
 

@@ -11,8 +11,8 @@ class PictureDataset(Dataset):
         self.root_dir = root_dir
         self.transform = transform
         self.list_images = glob(os.path.join(self.root_dir, '*.jpg'))
-        random.shuffle(self.list_images)
         if size != None:
+            random.shuffle(self.list_images)
             self.list_images = self.list_images[:size]
 
                                 
