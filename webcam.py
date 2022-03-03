@@ -17,6 +17,7 @@ def webcam(args):
     img_size = args.img_size
     load_model_path = args.load_model_path
     styles_path = args.styles_path
+    style_id = args.style_id
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -39,10 +40,10 @@ def webcam(args):
         frame = cv2.resize(frame, (img_size, img_size), fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
         frame = np.swapaxes(frame, 0, 2)
         
-        gen = predictor.eval_image(frame, 0)
+        gen = predictor.eval_image(frame, style_id)
         gen = np.swapaxes(gen, 0, 2)
 
-        gen = cv2.resize(gen, (800, 600))
+        gen = cv2.resize(gen, (400, 300))
 
         cv2.imshow('Input', gen)
 
@@ -63,6 +64,8 @@ def main():
     parser.add_argument("--load-model-path", type=str, required=True)
 
     parser.add_argument("--styles-path", type=str, required=True)
+
+    parser.add_argument("--style-id", type=int, required=True)
     
     args = parser.parse_args()
 
