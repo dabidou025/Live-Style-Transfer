@@ -22,7 +22,7 @@ class Trainer:
     def normalize_batch(self, batch):
         return (batch - self.batch_mean) / self.batch_std
 
-    def train(self, dataloader, optimizer, n_epochs, content_factor, style_factor, save_dir=None, save_step=5):
+    def train(self, dataloader, optimizer, n_epochs, content_factor, style_factor, save_dir=None, save_step=1):
 
         MSE = torch.nn.MSELoss()
 
@@ -75,7 +75,7 @@ class Trainer:
             style_losses.append(style_loss_epoch)
 
             if epoch % save_step == 0 and save_dir != None:
-                    torch.save(self.st_model.state_dict(), save_dir + '/st_model_' + str(epoch) + '.pth')
+                torch.save(self.st_model.state_dict(), save_dir + '/st_model_' + str(epoch) + '.pth')
 
             
         if save_dir != None:

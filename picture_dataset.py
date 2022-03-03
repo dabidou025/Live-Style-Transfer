@@ -1,5 +1,7 @@
 from torch.utils.data import Dataset
 
+import random
+
 from PIL import Image
 from glob import glob
 import os
@@ -8,7 +10,10 @@ class PictureDataset(Dataset):
     def __init__(self, root_dir, size=None, transform=None):
         self.root_dir = root_dir
         self.transform = transform
-        self.list_images = glob(os.path.join(self.root_dir, '*.jpg'))[:size] if size != None else glob(os.path.join(self.root_dir, '*.jpg'))
+        self.list_images = random.shuffle(glob(os.path.join(self.root_dir, '*.jpg')))
+        if size != None:
+            self.list_images = self.list_images[:size]
+
                                 
     def __len__(self):
         return len(self.list_images)
