@@ -46,7 +46,7 @@ def train(args):
     style_dataset = PictureDataset(styles_path, transform=data_transform)
     n_styles = len(style_dataset)
     st_model = STModel(n_styles)
-    if True:
+    if load_model_path != None:
         st_model.load_state_dict(torch.load(load_model_path))
     st_model = st_model.to(device)
 

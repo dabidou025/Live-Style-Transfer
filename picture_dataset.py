@@ -10,7 +10,8 @@ class PictureDataset(Dataset):
     def __init__(self, root_dir, size=None, transform=None):
         self.root_dir = root_dir
         self.transform = transform
-        self.list_images = random.shuffle(glob(os.path.join(self.root_dir, '*.jpg')))
+        self.list_images = glob(os.path.join(self.root_dir, '*.jpg'))
+        random.shuffle(self.list_images)
         if size != None:
             self.list_images = self.list_images[:size]
 
