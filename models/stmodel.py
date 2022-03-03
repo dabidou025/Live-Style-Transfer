@@ -14,9 +14,9 @@ class ConvCIN(nn.Module):
         self.conv = nn.Conv2d(in_channels=C_in, out_channels=C_out, kernel_size=kernel_size, stride=stride)
         nn.init.normal_(self.conv.weight, mean=0, std=1e-2)
 
-        self.instnorm = nn.InstanceNorm2d(C_out, affine=True)
-        nn.init.normal_(self.instnorm.weight, mean=1, std=1e-2)
-        nn.init.normal_(self.instnorm.bias, mean=0, std=1e-2)
+        self.instnorm = nn.InstanceNorm2d(C_out)#, affine=True)
+        #nn.init.normal_(self.instnorm.weight, mean=1, std=1e-2)
+        #nn.init.normal_(self.instnorm.bias, mean=0, std=1e-2)
 
         
         self.gamma = torch.nn.Parameter(data=torch.randn(n_styles, C_out)*1e-2 + 1, requires_grad=True)
