@@ -6,6 +6,7 @@ from models.stmodel import STModel
 from predictor import Predictor
 
 import argparse
+from glob import glob
 import os
 
 def predict(args):
@@ -18,7 +19,7 @@ def predict(args):
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    n_styles = len(os.listdir(styles_path))
+    n_styles = len(glob(os.path.join(styles_path, '*.jpg')))
     st_model = STModel(n_styles)
     if True:
         st_model.load_state_dict(torch.load(load_model_path, map_location=device))

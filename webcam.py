@@ -10,6 +10,8 @@ from models.stmodel import STModel
 from predictor import WebcamPredictor
 
 import argparse
+
+from glob import glob
 import os
 
 def webcam(args):
@@ -21,8 +23,9 @@ def webcam(args):
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    n_styles = len(os.listdir(styles_path))
+    n_styles = len(glob(os.path.join(styles_path, '*.jpg')))
     st_model = STModel(n_styles)
+
     if True:
         st_model.load_state_dict(torch.load(load_model_path, map_location=device))
     st_model = st_model.to(device)
@@ -43,7 +46,7 @@ def webcam(args):
         gen = predictor.eval_image(frame, style_id)
         gen = np.swapaxes(gen, 0, 2)
 
-        gen = cv2.resize(gen, (400, 300))
+        gen = cv2.resize(gen, (256, 256))
 
         cv2.imshow('Input', gen)
 
