@@ -29,8 +29,8 @@ def train(args):
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    layers = [0, 5, 10, 17, 24]
-    content_layers = [24]
+    layers = [0, 5, 10, 17, 19, 24]
+    content_layers = [19]
     style_layers = [0, 5, 10, 17, 24]
 
     mean = [0.485, 0.456, 0.406]
