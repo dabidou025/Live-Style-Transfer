@@ -38,13 +38,13 @@ class WebcamPredictor:
         self.mean = np.array([0.485, 0.456, 0.406])
         self.std = np.array([0.229, 0.224, 0.225])
 
-        self.mean = np.expand_dims(self.mean, (1,2))
-        self.std = np.expand_dims(self.std, (1,2))
+        self.mean = np.expand_dims(self.mean, (1,2)).to(device)
+        self.std = np.expand_dims(self.std, (1,2)).to(device)
 
     def eval_image(self, img, style_1, style_2=None, alpha=0.5):
         img = (img - self.mean) / self.std
-        img = torch.Tensor(img, device=self.device)
+        img = torch.from_numpy(img).to(self.device)
 
         gen = self.st_model(img.unsqueeze(0), style_1, style_2, alpha)
         
-        return np.uint8(gen[0].cpu().detach().numpy()*255.0)
+        return np.uint8(img[0].cpu().detach().numpy()*255.0)
