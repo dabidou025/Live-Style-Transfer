@@ -46,7 +46,7 @@ def webcam(args):
         gen = predictor.eval_image(frame, style_id)
         gen = np.swapaxes(gen, 0, 2)
 
-        gen = cv2.resize(gen, (256, 256))
+        #gen = cv2.resize(gen, (256, 256))
 
         cv2.imshow('Input', gen)
 
