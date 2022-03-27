@@ -1,6 +1,6 @@
 # Live-Style-Transfer
 
-Authors: *Matthieu Denis, Guillaume Brill, Alexandre Gommez, Hubert De Lesquen*
+Authors: *Matthieu Denis, Guillaume Bril, Alexandre Gommez, Hubert de Lesquen*
 
 The purpose of this project is to offer a transfer of style in real time with the webcam.
 
