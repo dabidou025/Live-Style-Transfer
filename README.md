@@ -13,3 +13,9 @@ To run the code on your computer:
 ```markdown
 python webcam.py --img-size 128 --load-model-path ./models/st_model_512_80k_12.pth --styles-path ./styles
 ```
+
+Inspiring Git Repositories :
+
+https://github.com/ryanwongsa/Real-time-multi-style-transfer.git
+
+https://github.com/vindruid/yolov3-in-colab.git
