@@ -257,7 +257,8 @@ def display_style():
     for file in list_file:
       file = open(file, "rb")
       image = file.read()
-      image = Image(value=image,width=100,height=100,)
+      image = Image(value=image,)
+      image.layout.width='100px'
       image.layout.object_fit ='contain'
       list_widgets.append(image)
     box = Box(children=list_widgets)
