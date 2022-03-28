@@ -19,6 +19,20 @@ To run the style transfer on the input folder's image :
 python .\predict_model.py --load-model-path models/st_model_512_80k_12.pth --save-generated-path generated --styles-path style_pictures --img-size 512 --input-path inputs/yourfile.jpg
 ```
 
+To train the model :
+```markdown
+! python train_main.py \
+--dataset-path yourdatasetpath \
+--styles-path style_pictures \
+--save-model-path models \
+--dataset-size 50000 \
+--img-size 512 \
+--n-epochs 1 \
+--batch-size 4 \
+--lr 0.001 \
+--style-factor 80000
+```
+
 
 Sources: 
 
