@@ -9,10 +9,15 @@ To run the code in collab: (slow due to Google limitations)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dabidou025/Live-Style-Transfer/blob/main/Live_Style_Transfer.ipynb)
 
-To run the code on your computer:
+To run the style transfer on your computer's webcam :
 ```markdown
 python webcam.py --img-size 128 --load-model-path ./models/st_model_512_80k_12.pth --styles-path ./styles
 ```
+
+To run the style transfer on the input folder's image :
+python .\predict_model.py --load-model-path models/st_model_512_80k_12.pth --save-generated-path generated --styles-path style_pictures --img-size 512 --input-path inputs/yourfile.jpg
+
+
 
 Sources: 
 
