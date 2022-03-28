@@ -1,0 +1,213 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{lras}{article}{}
+    \name{author}{3}{}{%
+      {{hash=DV}{%
+         family={Dumoulin},
+         familyi={D\bibinitperiod},
+         given={Vincent},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Shlens},
+         familyi={S\bibinitperiod},
+         given={Jonathon},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kudlur},
+         familyi={K\bibinitperiod},
+         given={Manjunath},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DVSJKM1}
+    \strng{fullhash}{DVSJKM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{eprint}
+    \verb 1610.07629
+    \endverb
+    \field{title}{A Learned Representation For Artistic Style}
+    \field{eprinttype}{arXiv}
+    \field{year}{2017}
+  \endentry
+
+  \entry{naas}{article}{}
+    \name{author}{3}{}{%
+      {{hash=GLA}{%
+         family={Gatys},
+         familyi={G\bibinitperiod},
+         given={Leon\bibnamedelima A.},
+         giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=EAS}{%
+         family={Ecker},
+         familyi={E\bibinitperiod},
+         given={Alexander\bibnamedelima S.},
+         giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Bethge},
+         familyi={B\bibinitperiod},
+         given={Matthias},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GLAEASBM1}
+    \strng{fullhash}{GLAEASBM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{eprint}
+    \verb 1508.06576
+    \endverb
+    \field{title}{A Neural Algorithm of Artistic Style}
+    \field{eprinttype}{arXiv}
+    \field{year}{2015}
+  \endentry
+
+  \entry{istucnn}{article}{}
+    \name{author}{3}{}{%
+      {{hash=GLA}{%
+         family={Gatys},
+         familyi={G\bibinitperiod},
+         given={Leon\bibnamedelima A.},
+         giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=EAS}{%
+         family={Ecker},
+         familyi={E\bibinitperiod},
+         given={Alexander\bibnamedelima S.},
+         giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Bethge},
+         familyi={B\bibinitperiod},
+         given={Matthias},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GLAEASBM1}
+    \strng{fullhash}{GLAEASBM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1109/CVPR.2016.265
+    \endverb
+    \field{title}{Image Style Transfer Using Convolutional Neural Networks}
+    \field{year}{2016}
+  \endentry
+
+  \entry{git1}{online}{}
+    \name{author}{1}{}{%
+      {{hash=HP}{%
+         family={Hervind},
+         familyi={H\bibinitperiod},
+         given={Philipe},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HP1}
+    \strng{fullhash}{HP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{yolov3-in-colab}
+    \verb{url}
+    \verb https://github.com/vindruid/yolov3-in-colab.git
+    \endverb
+  \endentry
+
+  \entry{nstar}{article}{}
+    \name{author}{5}{}{%
+      {{hash=JY}{%
+         family={Jing},
+         familyi={J\bibinitperiod},
+         given={Yongcheng},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=YY}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Yezhou},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=FZ}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Zunlei},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=YJ}{%
+         family={Ye},
+         familyi={Y\bibinitperiod},
+         given={Jingwen},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Song},
+         familyi={S\bibinitperiod},
+         given={Mingli},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JY+1}
+    \strng{fullhash}{JYYYFZYJSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \verb{eprint}
+    \verb 1705.04058
+    \endverb
+    \field{title}{Neural Style Transfer: {A} Review}
+    \field{eprinttype}{arXiv}
+    \field{year}{2017}
+  \endentry
+
+  \entry{git2}{online}{}
+    \name{author}{1}{}{%
+      {{hash=WR}{%
+         family={Wong},
+         familyi={W\bibinitperiod},
+         given={Ryan},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WR1}
+    \strng{fullhash}{WR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Real-time-multi-style-transfer}
+    \verb{url}
+    \verb https://github.com/ryanwongsa/Real-time-multi-style-transfer.git
+    \endverb
+  \endentry
+\enddatalist
+\endinput
