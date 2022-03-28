@@ -60,7 +60,7 @@ def gradio_pls():
     iface = gr.Interface(
         predict_gradio,   
         [
-            gr.inputs.Image(type="pil"),
+            "image",
         ],
         [
             gr.outputs.Carousel("image", label="Style"),
