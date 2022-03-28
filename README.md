@@ -19,9 +19,7 @@ python webcam.py \
 ```
 ### Photo Style Transfer
 
-To run the code on a gradio web-app : [Photo Style Transfer](https://18912.gradio.app)
-
-In case of broken link, create the link by running the Photo_Style_Transfer notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dabidou025/Live-Style-Transfer/blob/main/Photo_Style_Transfer.ipynb)
+To run the code on a gradio web-app, create the link by running the Photo_Style_Transfer notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dabidou025/Live-Style-Transfer/blob/main/Photo_Style_Transfer.ipynb)
 
 To run the style transfer on the input folder's image :
 ```markdown
