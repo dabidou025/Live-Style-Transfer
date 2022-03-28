@@ -15,8 +15,9 @@ python webcam.py --img-size 128 --load-model-path ./models/st_model_512_80k_12.p
 ```
 
 To run the style transfer on the input folder's image :
+```markdown
 python .\predict_model.py --load-model-path models/st_model_512_80k_12.pth --save-generated-path generated --styles-path style_pictures --img-size 512 --input-path inputs/yourfile.jpg
-
+```
 
 
 Sources: 
