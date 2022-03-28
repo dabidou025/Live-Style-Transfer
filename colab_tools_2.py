@@ -54,7 +54,7 @@ def display_style_photo():
       list_widgets.append(image)
     box = Box(children=list_widgets)
     display(box)
-    return print('Try to match these styles with what you see on your photo')
+    return print('Try to match these styles with what you see on your photo. \n\n')
 
 def gradio_pls():
     iface = gr.Interface(
