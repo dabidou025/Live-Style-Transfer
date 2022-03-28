@@ -23,3 +23,5 @@ python .\predict_model.py --load-model-path models/st_model_512_80k_12.pth --sav
 Sources: 
 
 https://github.com/ryanwongsa/Real-time-multi-style-transfer
+
+https://github.com/vindruid/yolov3-in-colab.git
