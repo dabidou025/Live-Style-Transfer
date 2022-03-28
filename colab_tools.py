@@ -239,8 +239,8 @@ def live_app():
   from ipywidgets import IntSlider, ToggleButton
   style = IntSlider(min=1, max=12)
 
-  print("to change the style, make a choice on the slide bar and push the refresh button!")
-  print("to stop the demo, click on the Stop button")
+  print("To change the style, make a choice on the slide bar and click on Refresh!")
+  print("To properly stop the demo, click on Stop!")
   display(style)
 
 
