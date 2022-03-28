@@ -18,7 +18,7 @@ from predictor import WebcamPredictor
 import argparse
 from glob import glob
 import os
-%matplotlib inline
+#matplotlib inline
 
 # JavaScript to properly create our live video stream using our webcam as input
 def video_stream():
