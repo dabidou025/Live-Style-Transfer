@@ -4,8 +4,9 @@ Authors: *Matthieu Denis, Guillaume Bril, Alexandre Gommez, Hubert de Lesquen*
 
 The purpose of this project is to offer a transfer of style in real time with the webcam.
 
-To run the code in collab: (slow due to Google limitations)
+### LiveCam Style Transfer
 
+To run the code in Colab: (slow due to Google limitations)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dabidou025/Live-Style-Transfer/blob/main/Live_Style_Transfer.ipynb)
 
@@ -16,6 +17,11 @@ python webcam.py \
 --load-model-path models/st_model_512_80k_12.pth \
 --styles-path styles
 ```
+### Photo Style Transfer
+
+To run the code on a gradio web-app : [Photo Style Transfer](https://15503.gradio.app)
+
+To create the link, run the folllowing Photo_Style_Transfer notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dabidou025/Live-Style-Transfer/blob/main/Photo_Style_Transfer.ipynb)
 
 To run the style transfer on the input folder's image :
 ```markdown
@@ -26,6 +32,7 @@ python .\predict_model.py \
 --img-size 512 \
 --input-path inputs/yourfile.jpg
 ```
+### Training the model
 
 To train the model :
 ```markdown
@@ -41,8 +48,7 @@ python train_main.py \
 --style-factor 80000
 ```
 
-
-Inspiring sources: 
+### Inspiring sources: 
 
 https://github.com/ryanwongsa/Real-time-multi-style-transfer
 
