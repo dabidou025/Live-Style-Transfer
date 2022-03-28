@@ -19,7 +19,7 @@ import argparse
 from glob import glob
 import os
 from ipywidgets import Box, Image
-import gradio
+import gradio as gr
 
 def predict_gradio(image):
     img_size = 512
