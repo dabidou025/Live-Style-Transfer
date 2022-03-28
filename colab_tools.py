@@ -246,7 +246,7 @@ def live_app():
 
 
   def on_value_change(change):
-      live_style_transfert(change['new'])
+      live_style_transfert(change['new']-1)
 
   style.observe(on_value_change, names='value')
 
