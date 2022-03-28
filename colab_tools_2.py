@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 from models.stmodel import STModel
-from predictor import WebcamPredictor
+from predictor import Predictor
 import argparse
 from glob import glob
 import os
