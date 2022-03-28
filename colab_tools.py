@@ -262,4 +262,5 @@ def display_style():
       image.layout.object_fit ='contain'
       list_widgets.append(image)
     box = Box(children=list_widgets)
-    return print('Try to match these styles with what you see on your webcam', display(box))
+    display(box)
+    return print('Try to match these styles with what you see on your webcam')
