@@ -18,6 +18,7 @@ from predictor import WebcamPredictor
 import argparse
 from glob import glob
 import os
+from ipywidgets import Box, Image
 #matplotlib inline
 
 # JavaScript to properly create our live video stream using our webcam as input
@@ -248,3 +249,16 @@ def live_app():
       live_style_transfert(change['new'])
 
   style.observe(on_value_change, names='value')
+
+def display_style():
+    styles_path = "./styles/" 
+    list_file = glob(os.path.join(styles_path, '*.jpg'))
+    list_widgets=[]
+    for file in list_file:
+      file = open(file, "rb")
+      image = file.read()
+      image = Image(value=image,width=100,height=100,)
+      image.layout.object_fit ='contain'
+      list_widgets.append(image)
+    box = Box(children=list_widgets)
+    return print('Try to match these styles with what you see on your webcam', display(box))
