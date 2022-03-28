@@ -239,7 +239,7 @@ def live_style_transfert(style_id):
 def live_app():
   from ipywidgets import IntSlider, ToggleButton
   style = IntSlider(min=1, max=12)
-  print("To launch the app, make a choice on the SlideBar (it could take 5s to launch)")
+  print("To launch the app, make a choice on the SlideBar (it could take 10 seconds to launch)")
   print("To change the style, move the SlideBar and click on Refresh!")
   print("To properly stop the demo, click on Stop!")
   display(style)
