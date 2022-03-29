@@ -41,33 +41,45 @@ def predict_gradio(image):
         list_gen.append(gen)
     return list_gen
 
-def display_style_photo():
-    styles_path = "./styles/" 
-    list_file = glob(os.path.join(styles_path, '*.jpg'))
-    list_widgets=[]
-    for file in list_file:
-      file = open(file, "rb")
-      image = file.read()
-      image = Image(value=image,)
-      image.layout.width='100px'
-      image.layout.object_fit ='contain'
-      list_widgets.append(image)
-    box = Box(children=list_widgets)
-    display(box)
-    return print('Try to match these styles with what you see on your photo. \n\n')
-
 def gradio_pls():
+    description="""
+                Upload a photo and click on submit to see the 12 styles applied to your photo. \n 
+                Keep in mind that for compatibility reasons your photo is cropped before the neural net applied the different styles.
+                <center>
+                <table><tr>
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/a_muse_picasso.jpg" width=100px></td>
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/britto.jpg" width=100px></td>
+
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/cat.jpg" width=100px></td>
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/cubist.jpg" width=100px></td>
+
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/fractal.jpg" width=100px></td>
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/horse.jpg" width=100px></td>
+
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/monet.jpg" width=100px></td>
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/sketch.jpg" width=100px></td>
+
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/starry_night.jpg" width=100px></td>
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/texture.jpg" width=100px></td>
+
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/tsunami.jpg" width=100px></td>
+                <td><img src="https://raw.githubusercontent.com/dabidou025/Live-Style-Transfer/main/styles/vibrant.jpg" width=100px></td>
+
+                </tr>
+                </table>
+                </center>
+                """
     iface = gr.Interface(
         predict_gradio,   
         [
-            gr.inputs.Image(type="pil"),
+            gr.inputs.Image(type="pil", label="Image"),
         ],
         [
             gr.outputs.Carousel("image", label="Style"),
         ],
         layout="unaligned",
         title="Photo Style Transfer",
-        description="Upload a photo and click on submit to see the 12 styles applied to your photo. Keep in mind that for coding reasons your photo is cropped before the neural net applied the different styles.",
+        description=description,
         theme="grass",
         allow_flagging='never'
     )
