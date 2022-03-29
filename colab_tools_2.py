@@ -84,4 +84,4 @@ Keep in mind that for compatibility reasons your photo is cropped before the neu
         allow_flagging='never'
     )
 
-    return iface.launch(inline=True, height=600, width=800)
+    return iface.launch(inline=True, height=800, width=800)
