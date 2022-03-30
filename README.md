@@ -19,6 +19,8 @@ python webcam.py \
 ```
 ### Photo Style Transfer
 
+To test the code on [HuggingFace](https://huggingface.co/spaces/gbach1lg/PhotoStyleTransfer)
+
 To run the code on a gradio web-app, create the link by running the Photo_Style_Transfer notebook: 
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dabidou025/Live-Style-Transfer/blob/main/Photo_Style_Transfer.ipynb)
