@@ -15,7 +15,8 @@ To run the style transfer on your computer's webcam :
 python webcam.py \
 --img-size 512 \
 --load-model-path models/st_model_512_80k_12.pth \
---styles-path styles
+--styles-path styles \
+--style-id 1
 ```
 ### Photo Style Transfer
 
